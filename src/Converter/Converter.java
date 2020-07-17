@@ -10,5 +10,6 @@ package Converter;
  * @author Sajana
  */
 public interface Converter {
+    //converting method
     public void convert();
 }

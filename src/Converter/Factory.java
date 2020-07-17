@@ -11,6 +11,7 @@ package Converter;
  */
 public class Factory {
     public Converter getInstance(String type){
+        //sorting
     if("mp4Tomp3".equals(type)) return new mp4Tomp3();
     if("mp4Toflv".equals(type)) return new mp4Toflv();
     if("mp4Tomkv".equals(type)) return new mp4Tomkv();
