@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
@@ -32,16 +33,16 @@ public class MediaConverter {
         String dirName = "E:/Sajana/UOK/IPT/Media";
         try {
             
-//            Files.walk(Paths.get(dirName))
-//            .filter(Files::isDirectory)
-//            .forEach(System.out::println);
-            //Lis
+//            
+            //Listing files to list array
             List<File> filesInFolder = Files.walk(Paths.get(dirName))
                                 .filter(Files::isRegularFile)
                                 .map(Path::toFile)
                                 .collect(Collectors.toList());
             for(File file:filesInFolder){
-            System.out.println(file);
+                String[] name = file.toString().split("\\\\");
+               
+            System.out.println(name[name.length-2]);
         }
         } 
         catch (Exception e) {
