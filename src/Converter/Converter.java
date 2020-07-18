@@ -5,6 +5,8 @@
  */
 package Converter;
 
+import java.io.File;
+
 /**
  *
  * @author Sajana

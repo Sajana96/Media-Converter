@@ -5,13 +5,19 @@
  */
 package Converter;
 
+import java.io.File;
+
 /**
  *
  * @author Sajana
  */
 public class mp4Toflv implements Converter{
+    File file;
+    public mp4Toflv(File file){
+        this.file=file;
+    }
     @Override
     public void convert() {
-        System.out.println("converted mp4 to flv ");
+        System.out.println("converted mp4 to flv "+file.toString());
     }
 }

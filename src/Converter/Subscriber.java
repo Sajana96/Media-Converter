@@ -19,9 +19,9 @@ public class Subscriber implements Runnable {
     
     Converter converter;
     
-    public Subscriber(Converter converter){
-        this.converter = converter;
-    }
+//    public Subscriber(Converter converter){
+//        this.converter = converter;
+//    }
     
     public void subscribe(Converter converter){
         converterList.add(converter);
@@ -35,10 +35,11 @@ public class Subscriber implements Runnable {
     public void run(){
         boolean valid = true;
         while(valid) {
-            converterList.add(this.converter);
-            for(Converter converter : converterList){
-            converter.convert();
-        }
+            //converterList.add(this.converter);
+//            for(Converter converter : converterList){
+//            converter.convert();
+//        }
+            //converter.convert();
         }
     }
     

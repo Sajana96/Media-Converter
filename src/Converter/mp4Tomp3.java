@@ -5,15 +5,20 @@
  */
 package Converter;
 
+import java.io.File;
+
 /**
  *
  * @author Sajana
  */
 public class mp4Tomp3 implements Converter{
-
+    File file;
+    public mp4Tomp3(File file){
+        this.file=file;
+    }
     @Override
     public void convert() {
-        System.out.println("converted mp4 to mp3 ");
+        System.out.println("converted mp4 to mp3 "+file.toString());
     }
     
 }

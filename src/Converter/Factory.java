@@ -5,16 +5,18 @@
  */
 package Converter;
 
+import java.io.File;
+
 /**
  *
  * @author Sajana
  */
 public class Factory {
-    public Converter getInstance(String type){
+    public Converter getInstance(String type, File file){
         //sorting
-    if("mp4Tomp3".equals(type)) return new mp4Tomp3();
-    if("mp4Toflv".equals(type)) return new mp4Toflv();
-    if("mp4Tomkv".equals(type)) return new mp4Tomkv();
+    if("mp4Tomp3".equals(type)) return new mp4Tomp3(file);
+    if("mp4Toflv".equals(type)) return new mp4Toflv(file);
+    if("mp4Tomkv".equals(type)) return new mp4Tomkv(file);
     
     return null;
     }

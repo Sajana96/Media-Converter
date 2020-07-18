@@ -5,13 +5,19 @@
  */
 package Converter;
 
+import java.io.File;
+
 /**
  *
  * @author Sajana
  */
 public class mp4Tomkv implements Converter{
+    File file;
+    public mp4Tomkv(File file){
+        this.file=file;
+    }
    @Override
     public void convert() {
-        System.out.println("converted mp4 to mkv ");
+        System.out.println("converted mp4 to mkv "+file.toString());
     } 
 }
