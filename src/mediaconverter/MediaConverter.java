@@ -34,7 +34,7 @@ public class MediaConverter {
         
         Factory factory = new Factory();
         Subscriber subscriber = new Subscriber();
-        String dirName = "E:/Sajana/UOK/IPT/Media";
+        String dirName = "D:/Malmi/UOK/IPT/Media";
         
         try {
             while(true){List<File> filesInFolder = Files.walk(Paths.get(dirName))

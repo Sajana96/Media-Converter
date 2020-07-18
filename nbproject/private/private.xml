@@ -8,8 +8,11 @@
         <group>
             <file>file:/D:/Git%20Projects/Media-Converter/src/mediaconverter/app.config</file>
             <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/Factory.java</file>
+            <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/Subscriber.java</file>
+            <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/mp4Tomp3.java</file>
             <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/mp4Tomkv.java</file>
             <file>file:/D:/Git%20Projects/Media-Converter/src/mediaconverter/MediaConverter.java</file>
+            <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/Converter.java</file>
             <file>file:/D:/Git%20Projects/Media-Converter/src/Converter/mp4Toflv.java</file>
         </group>
     </open-files>

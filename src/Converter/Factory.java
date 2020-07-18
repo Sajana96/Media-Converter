@@ -17,6 +17,7 @@ public class Factory {
     if("mp4Tomp3".equals(type)) return new mp4Tomp3(file,subscriber);
     if("mp4Toflv".equals(type)) return new mp4Toflv(file,subscriber);
     if("mp4Tomkv".equals(type)) return new mp4Tomkv(file,subscriber);
+    if("wavTomp3".equals(type)) return new wavTomp3(file, subscriber);
     
     return null;
     }
