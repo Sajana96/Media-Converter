@@ -33,9 +33,10 @@ public class MediaConverter {
     public static void main(String[] args) {
         
         Factory factory = new Factory();
+        Subscriber subscriber = new Subscriber();
         
        
-        String dirName = "D:/Malmi/UOK/IPT/Media";
+        String dirName = "E:/Sajana/UOK/IPT/Media";
         try {
             
 //            
@@ -48,12 +49,15 @@ public class MediaConverter {
                 String[] name = file.toString().split("\\\\");
                
             System.out.println(name[name.length-2]);
-            Converter converter = factory.getInstance(name[name.length-2]);
+            Converter converter = factory.getInstance(name[name.length-2],file);
             //converter.convert();
             
-            Runnable c = new Subscriber(converter); 
-            new Thread(c).start();
+            
+//            Runnable c = new Subscriber(converter); 
+//            new Thread(c).start();
+             subscriber.subscribe(converter);
         }
+            subscriber.convertSubscribers();
         } 
         catch (Exception e) {
             e.printStackTrace(); 
