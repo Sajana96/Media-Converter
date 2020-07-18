@@ -8,6 +8,7 @@ package Converter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Map;
  */
 public class Subscriber implements Runnable {
     
-    List<Converter> converterList = new ArrayList<>();
+    List<Converter> converterList = new CopyOnWriteArrayList<Converter>();
     
     Converter converter;
     
@@ -45,7 +46,7 @@ public class Subscriber implements Runnable {
     
     public void convertSubscribers(){
         for(Converter converter : converterList){
-            converter.convert();
+            converter.convert(converter);
         }
     }
 }

@@ -12,11 +12,11 @@ import java.io.File;
  * @author Sajana
  */
 public class Factory {
-    public Converter getInstance(String type, File file){
+    public Converter getInstance(String type, File file, Subscriber subscriber){
         //sorting
-    if("mp4Tomp3".equals(type)) return new mp4Tomp3(file);
-    if("mp4Toflv".equals(type)) return new mp4Toflv(file);
-    if("mp4Tomkv".equals(type)) return new mp4Tomkv(file);
+    if("mp4Tomp3".equals(type)) return new mp4Tomp3(file,subscriber);
+    if("mp4Toflv".equals(type)) return new mp4Toflv(file,subscriber);
+    if("mp4Tomkv".equals(type)) return new mp4Tomkv(file,subscriber);
     
     return null;
     }

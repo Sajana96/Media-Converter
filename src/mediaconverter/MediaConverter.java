@@ -34,31 +34,35 @@ public class MediaConverter {
         
         Factory factory = new Factory();
         Subscriber subscriber = new Subscriber();
-        
-       
         String dirName = "E:/Sajana/UOK/IPT/Media";
+        
         try {
-            
-//            
-            //Listing files to list array
-            List<File> filesInFolder = Files.walk(Paths.get(dirName))
+            while(true){List<File> filesInFolder = Files.walk(Paths.get(dirName))
                                 .filter(Files::isRegularFile)
                                 .map(Path::toFile)
                                 .collect(Collectors.toList());
-            for(File file:filesInFolder){
+            
+            if(!filesInFolder.isEmpty()){for(File file:filesInFolder){
                 String[] name = file.toString().split("\\\\");
                
             System.out.println(name[name.length-2]);
-            Converter converter = factory.getInstance(name[name.length-2],file);
+            Converter converter = factory.getInstance(name[name.length-2],file,subscriber);
             //converter.convert();
             
             
-//            Runnable c = new Subscriber(converter); 
+//    Runnable c = new Subscriber(converter); 
 //            new Thread(c).start();
              subscriber.subscribe(converter);
-        }
-            subscriber.convertSubscribers();
-        } 
+                
+            
+        }}
+                
+            subscriber.convertSubscribers();}
+            
+         }
+//         
+           
+           
         catch (Exception e) {
             e.printStackTrace(); 
               

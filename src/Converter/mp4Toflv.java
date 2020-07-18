@@ -13,11 +13,17 @@ import java.io.File;
  */
 public class mp4Toflv implements Converter{
     File file;
-    public mp4Toflv(File file){
+    Subscriber subscriber;
+    public mp4Toflv(File file, Subscriber subscriber){
         this.file=file;
+        this.subscriber = subscriber;
     }
     @Override
-    public void convert() {
+    public void convert(Converter converter) {
         System.out.println("converted mp4 to flv "+file.toString());
+        file.delete();
+        System.out.println("File Deleted");
+        subscriber.unSubscribe(converter);
+        System.out.println("Unsubsribed");
     }
 }
