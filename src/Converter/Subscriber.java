@@ -7,14 +7,21 @@ package Converter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Malmi
  */
-public class Subscriber {
+public class Subscriber implements Runnable {
     
     List<Converter> converterList = new ArrayList<>();
+    
+    Converter converter;
+    
+    public Subscriber(Converter converter){
+        this.converter = converter;
+    }
     
     public void subscribe(Converter converter){
         converterList.add(converter);
@@ -22,5 +29,22 @@ public class Subscriber {
     
     public void unSubscribe(Converter converter){
         converterList.remove(converter);
+    }
+    
+    @Override
+    public void run(){
+        boolean valid = true;
+        while(valid) {
+            converterList.add(this.converter);
+            for(Converter converter : converterList){
+            converter.convert();
+        }
+        }
+    }
+    
+    public void convertSubscribers(){
+        for(Converter converter : converterList){
+            converter.convert();
+        }
     }
 }

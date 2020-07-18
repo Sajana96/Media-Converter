@@ -5,6 +5,9 @@
  */
 package mediaconverter;
 
+import Converter.Converter;
+import Converter.Factory;
+import Converter.Subscriber;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -29,8 +32,10 @@ public class MediaConverter {
 
     public static void main(String[] args) {
         
+        Factory factory = new Factory();
+        
        
-        String dirName = "E:/Sajana/UOK/IPT/Media";
+        String dirName = "D:/Malmi/UOK/IPT/Media";
         try {
             
 //            
@@ -43,6 +48,11 @@ public class MediaConverter {
                 String[] name = file.toString().split("\\\\");
                
             System.out.println(name[name.length-2]);
+            Converter converter = factory.getInstance(name[name.length-2]);
+            //converter.convert();
+            
+            Runnable c = new Subscriber(converter); 
+            new Thread(c).start();
         }
         } 
         catch (Exception e) {

@@ -11,5 +11,6 @@ package Converter;
  */
 public interface Converter {
     //converting method
+    
     public void convert();
 }
