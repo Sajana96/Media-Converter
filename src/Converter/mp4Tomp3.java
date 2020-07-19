@@ -6,6 +6,7 @@
 package Converter;
 
 import java.io.File;
+import mediaconverter.Config;
 
 /**
  *
@@ -20,11 +21,15 @@ public class mp4Tomp3 implements Converter{
     }
     @Override
     public void convert(Converter converter) {
+        System.out.println("Conversion Type:- mp4 to mp3");
+        File destination = new File(Config.getDestination()+"/Media-converted/mp4Tomp3-converted");
+        destination.mkdirs();
         System.out.println("converted mp4 to mp3 "+file.toString());
         file.delete();
-        System.out.println("File Deleted");
+        System.out.println("Converted File Moved to "+destination.toString());
+        System.out.println("File Deleted from source directory");
          subscriber.unSubscribe(converter);
-        System.out.println("Unsubsribed");
+        System.out.println("Unsubsribed\n");
     }
     
 }

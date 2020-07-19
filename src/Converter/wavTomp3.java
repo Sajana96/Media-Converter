@@ -12,6 +12,7 @@ import it.sauronsoftware.jave.EncodingAttributes;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mediaconverter.Config;
 import org.apache.commons.io.FilenameUtils;
 
 /**
@@ -31,7 +32,7 @@ public class wavTomp3 implements Converter{
             File source = this.file;
             String fileName = source.getName();
             String name = FilenameUtils.removeExtension(fileName);
-            File target = new File("D:/Malmi/UOK/IPT/Media-converted/wavTomp3-converted/" + name + ".mp3");
+            File target = new File(Config.getDestination()+"/Media-converted/wavTomp3-converted/" + name + ".mp3");
             
             //Audio Attributes
             AudioAttributes audio = new AudioAttributes();
@@ -49,10 +50,13 @@ public class wavTomp3 implements Converter{
             Encoder encoder = new Encoder();
             encoder.encode(source, target, attrs);
             
+            System.out.println("Conversion Type:- wav to mp3");
+            System.out.println("converted wav to mp3 "+file.toString());
+            System.out.println("Converted file moved to "+target.toPath().toString());
             file.delete();
-            System.out.println("File Deleted");
+            System.out.println("File Deleted from source directory");
             subscriber.unSubscribe(converter);
-            System.out.println("Unsubsribed");
+            System.out.println("Unsubsribed\n");
         } catch (Exception ex) {                                      
  ex.printStackTrace();                                                                                 
 }

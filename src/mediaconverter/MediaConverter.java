@@ -31,32 +31,46 @@ public class MediaConverter {
     
 
     public static void main(String[] args) {
-        
+       
         Factory factory = new Factory();
         Subscriber subscriber = new Subscriber();
-        String dirName = "D:/Malmi/UOK/IPT/Media";
+        String dirName = Config.getSource();
+      
+
+           
         
         try {
-            while(true){List<File> filesInFolder = Files.walk(Paths.get(dirName))
+            
+            System.out.println(Config.getSource());
+            System.out.println(Config.getDestination());
+       while(true){
+                //Getting files from the target folder to an object array of File type
+            List<File> filesInFolder = Files.walk(Paths.get(dirName))
                                 .filter(Files::isRegularFile)
                                 .map(Path::toFile)
                                 .collect(Collectors.toList());
-            
-            if(!filesInFolder.isEmpty()){for(File file:filesInFolder){
+            //If the array is not empty 
+            if(!filesInFolder.isEmpty()){
+                //for each object in object array
+                for(File file:filesInFolder){
+                    //get the directory name
                 String[] name = file.toString().split("\\\\");
                
-            System.out.println(name[name.length-2]);
-            Converter converter = factory.getInstance(name[name.length-2],file,subscriber);
-            //converter.convert();
+               //intializing converter objects based to directory names using factory method
+               //passing the subsriber object and file object when initiation
+                Converter converter = factory.getInstance(name[name.length-2],file,subscriber);
+                  
             
             
-//    Runnable c = new Subscriber(converter); 
-//            new Thread(c).start();
-             subscriber.subscribe(converter);
+                //    Runnable c = new Subscriber(converter); 
+                //            new Thread(c).start();
                 
-            
+                //each converter object is subscribed to subscriber list
+                subscriber.subscribe(converter);    
         }}
-                
+                //invoke convert method for all the objects in subsriber list
+                //Unsubsription happen from each object 
+                //Once the subsriber list is empty it will keep listening to any object passed to it to perform converson
             subscriber.convertSubscribers();}
             
          }
